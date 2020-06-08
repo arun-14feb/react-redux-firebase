@@ -1,0 +1,19 @@
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{userId} {
+      allow create;
+      allow read; 
+      allow write: if request.auth.uid == userId;
+    }
+    match /products/{product} {
+      allow read;
+      allow write: if request.auth.uid != null;
+    }
+    match /contactus/{contactus} {
+      allow create,read;
+    }
+    match /orders/{order} {
+    	allow create,read,write: if request.auth.uid != null;
+    }
+  }
+}
