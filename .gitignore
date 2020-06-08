@@ -1,0 +1,8 @@
+node_modules/
+package-lock.json
+build/
+functions/node_modules
+functions/package-lock.json
+.firebase
+.idea
+.DS_Store
